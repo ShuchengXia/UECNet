@@ -13,7 +13,7 @@ from torch.utils.data import DataLoader
 # from data.LCDP_data import TrainDataset, TestDataset
 # from data.MSEC_data import TrainDataset, TestDataset
 # from utils.utils_data import TrainDataset, TestDataset
-from data.CID_data import TrainDataset, TestDataset
+from data.SICE-DE_dataset import TrainDataset, TestDataset
 from utils.utils import cal_psnr, cal_ssim
 from piqa import PSNR, SSIM  # , LPIPS
 import pyiqa
@@ -44,10 +44,10 @@ if __name__ == '__main__':
     datasets = ['Backlit300', 'BAID-resize', 'LCDPNet', 'samples']
     dataset = datasets[2]
     parser = argparse.ArgumentParser()
-    # parser.add_argument('--dataset-dir', type=str, default=f'/ext_ssd/xsc_datasets/{dataset}/')
+    # parser.add_argument('--dataset-dir', type=str, default=f'/ext_ssd/datasets/{dataset}/')
     # parser.add_argument('--dataset-dir', type=str, default=f'./samples/')
-    parser.add_argument('--dataset-dir', type=str, default='/ext_ssd/xsc_datasets/LCDPNet/', help='dataset dir')
-    parser.add_argument('--result-dir', type=str, default='./result/LCDP/0701_2301/test/')
+    parser.add_argument('--dataset-dir', type=str, default='/ext_ssd/datasets/LCDPNet/', help='dataset dir')
+    parser.add_argument('--result-dir', type=str, default='/test/')
     args = parser.parse_args()
 
 
@@ -184,4 +184,5 @@ if __name__ == '__main__':
             print(f'[NIQE]: {niqe_mean:.4f}')
             print(f'[MUSIQ]: {musiq_mean:.4f}')
             print(f'[ * ] End Time: {get_now()}\n')
+
 
