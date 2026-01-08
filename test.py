@@ -9,8 +9,6 @@ import torchvision.transforms.functional as TF
 from torch.utils.data import DataLoader
 # from data.BAID_data import TrainDataset, TestDataset
 # from data.LCDP_data import TrainDataset, TestDataset
-# from data.MSEC_data import TrainDataset, TestDataset
-# from utils.utils_data import TrainDataset, TestDataset
 from data.SICE_DE_data import TrainDataset, TestDataset
 from piqa import PSNR, SSIM
 import pyiqa
@@ -38,7 +36,7 @@ if __name__ == '__main__':
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
 
-    datasets = ['Backlit300', 'BAID-resize', 'LCDPNet', 'samples']
+    datasets = ['LCDP', 'SICE-v2', 'SICE-DE', 'DICM', 'LIME', 'MEF', 'NPE', 'VV']
     dataset = datasets[2]
     parser = argparse.ArgumentParser()
     # parser.add_argument('--dataset-dir', type=str, default=f'/ext_ssd/xsc_datasets/{dataset}/')
@@ -50,7 +48,7 @@ if __name__ == '__main__':
 
     save_file = True
     need_GT = True
-    if dataset == "Backlit300" or dataset == "samples":
+    if dataset == "DICM" or dataset == "LIME":
         need_GT = False
     valset = TestDataset(args, mode='test', crop_border=True)
     valloader = DataLoader(dataset=valset, batch_size=1)
@@ -130,4 +128,5 @@ if __name__ == '__main__':
             # print(f'\nDone!')
             print(f'[MUSIQ]: {musiq_mean:.4f}')
             print(f'[ * ] End Time: {get_now()}\n')
+
 
