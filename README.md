@@ -8,7 +8,7 @@ The SICE-DE test dataset can be download [here](https://drive.google.com/drive/f
 (We will make all the SICE-DE datasets available after the paper is accepted.)
 
 ## Test ##
-run the test.py to get the restored images and indicators.
+Run the test.py to get the restored images and evaluation values.
 
 The pretrained model weights can be download [here](https://drive.google.com/drive/folders/1WwDLiWVj0lWYLoXp-79czSdmvqr2L-Ev?usp=drive_link) 
 
